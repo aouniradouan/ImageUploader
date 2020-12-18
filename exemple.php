@@ -14,22 +14,24 @@
 </div>
 
 <?php
-// Add new Game Type
+
 if (isset($_POST['upload']))
 {
-    $GAME_THUMB = $_FILES['image'];
+    $IMAGE      = $_FILES['image'];
     
-    $move_file_path = "stockage/images/";
-    $upload = ImagesUploder($GAME_THUMB, $move_file_path);
-    // 0 Mean Image was not uploaded - 1 Mean Image was uploaded Successfuly
-    if ($upload['is_uploaded'] == 0)
+    $move_file_path  = "stockage/images/"; // Move file to this path after uploading
+    $upload          = ImagesUploder($IMAGE, $move_file_path); // Call The 'ImageUploader' function  inside a ' Upload ' Variable
+
+   // 0 => Error - 1 => Success
+   // $upload variable inside it an array returned from 'ImagesUploder' function
+   if ($upload['is_uploaded'] == 0)
     {
         echo "There is an error please try again";
     }
     else
     {
 
-    // Your Code Here
+    // Your Code Here if success upload and move to the target file
 
     }
 
